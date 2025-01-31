@@ -1,0 +1,181 @@
+# Setting up WSL for Windows 10/11
+
+## Installing WSL
+
+In order to install WSL2 onto Windows, launch powershell as an admin and run the following commands:
+
+>[!Note]
+> These commands will install Ubuntu as the OS.
+
+```powershell
+wsl --install -d ubuntu
+wsl --set-default-version 2
+wsl --update
+``` 
+<details>
+
+`wsl --install -d ubuntu`: Installs WSL and specifies that the Ubuntu distrubtion is used.
+
+`wsl --set-default-version 2`: Makes sure that you are using WSL2 & not WSL.
+
+`wsl --update`: Updates WSL if needed.
+
+</details>
+
+## Configuring WSL
+
+Once you have installed WSL, launch it and run the following commands:
+
+>[!Caution]
+> These commands will only work on Debian or a Debian-derived OS (such as Ubuntu).
+
+```bash
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y wslu build-essential curl net-tools tree retext xdg-utils desktop-file-utils
+cat << EOF > /etc/profile.d/sh.local
+#Add any required envvar overrides to this file, it is sourced from /etc/profile
+if [ $EUID == 0 ]; then
+  PS1="[\[\033[01;31m\]\u@\h.md\[\033[01;34m\]:\W\[\033[00m\]]\$ "
+  #  [ "$PS1" = "\\s-\\v\\\$ " ] && PS1="\[\033[01;31m\]\u@\h\[\033[01;34m\] \W $\[\033[00m\] "
+else
+  PS1="[\[\033[01;32m\]\u@\h.md\[\033[01;34m\]:\w\[\033[00m\]]\$ "
+  #  [ "$PS1" = "\\s-\\v\\\$ " ] && PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] "
+fi
+EOF
+touch ~/.profile
+echo 'source ~/.bashrc'  >> .profile
+source ~/.bashrc
+```
+
+<details>
+
+```bash
+sudo apt update
+sudo apt upgrade -y
+```
+Runs the `apt` package manager and checks to make sure all the installed packages are current. **Make sure you do this first anytime you install software.**.
+
+```bash
+sudo apt install -y wslu build-essential curl net-tools tree retext xdg-utils desktop-file-utils
+```
+Installs the following software packages:
+- wslu
+- build-essential
+- curl
+- net-tools
+- tree
+- retext
+- xdg-utils
+- desktop-file-utils
+
+While these packages are not needed, it will make your linux expirence easier.
+
+For more information about a specific software package, go to your command line and type `apt info <package-name>`.
+
+```bash
+cat << EOF > /etc/profile.d/sh.local
+...
+EOF
+```
+Adds the text (in this example, `...`), to the file `sh.local`. In the original code above, the text is a script that changes the color of your CLI prompt. (see the ELI5 section for more)
+
+```bash
+touch ~/.profile
+echo 'source ~/.bashrc'  >> .profile
+source ~/.bashrc
+```
+Makes sure the file `.profile` in your home (`~`) directory exists and adds the text `source ~/.bashrc` to the bottom. Then reloads your terminal to add color to your prompt.
+
+</details>
+
+<br>
+
+<details>
+<summary>ELI5</summary>
+
+(I thought ChatGPT's answer to the question "explain this bash snippet like I'm five" was too funny not to include)
+
+## Setting the Stage
+Imagine you have a magic book where you can write special instructions that your computer can follow. This magic book helps your computer know what to show when you type commands.
+
+## The Code Snippet
+Here’s what the magic spell (the code snippet) does, step by step:
+
+### Opening the Magic Book:
+
+```bash
+cat << EOF > /etc/profile.d/sh.local
+```
+This line says, "Hey computer, I’m going to start writing some instructions and I want you to save them in a special place called /etc/profile.d/sh.local."
+
+### Writing Instructions:
+The lines inside are the instructions being written:
+
+```bash
+#Add any required envvar overrides to this file, it is sourced from /etc/profile
+```
+This is just a note to remind anyone reading this file why it exists.
+
+**If You’re the Boss:**
+
+```bash
+if [ $EUID == 0 ]; then
+```
+This line says, "If the person using the computer is the boss (also known as the 'root' user), then..."
+
+```bash
+PS1="[\[\033[01;31m\]\u@\h.md\[\033[01;34m\]:\W\[\033[00m\]]\$ "
+```
+This sets a special prompt that appears when the boss is typing commands. The prompt will be in red color to make it look important.
+
+**If You’re Not the Boss:**
+
+```bash
+else
+```
+This line says, "If the person using the computer is not the boss, then..."
+
+```bash
+PS1="[\[\033[01;32m\]\u@\h.md\[\033[01;34m\]:\w\[\033[00m\]]\$ "
+```
+This sets a different prompt that appears when a regular person is typing commands. The prompt will be in green color.
+
+### Closing the Instructions:
+
+```bash
+fi
+EOF
+```
+These lines say, "Alright, I’m done writing my instructions. Close the book and save it."
+
+### Adding a Touch to Another Book:
+
+```bash
+touch ~/.profile
+```
+This line says, "Make sure there’s a file called .profile in your home folder. If it’s not there, create it."
+
+### Adding More Instructions:
+
+```bash
+echo 'source ~/.bashrc'  >> .profile
+```
+This line says, "Write another small instruction at the end of the .profile file that says to also read another book called .bashrc."
+
+### Following the New Instructions:
+
+```bash
+source ~/.bashrc
+```
+This line says, "Right now, follow the instructions in the .bashrc book."
+
+## Summary
+So, what’s happening here is you’re setting up some special rules for how the computer looks when different people type commands. If the boss is typing, it shows one way (in red), and if anyone else is typing, it shows another way (in green). You’re saving these rules in a special place and making sure your computer knows to follow these rules every time you start using it.
+
+</details>
+<br>
+
+# Additional Resources
+
+- [WSL Documentation on Microsoft](https://learn.microsoft.com/en-us/windows/wsl/)
