@@ -8,6 +8,11 @@
 > [!WARNING]
 > This section is still-in progress! Come back later!
 
+A word doc containing the following:
+- (Task 1, 2, 3) A screenshot of VirtualBox showing the installed Virtual Machines
+- (Task 5) A screenshot of captured wireshark traffic
+- (Task 8) The answers to the questions
+
 <!--TODO-->
 
 ## Task 1 & 2: Install and Configure Windows Virtual Machines
@@ -43,7 +48,10 @@
     - Base Memory 2048 MB 
     - Processors: 4
     - Virtual Hard Disk Size: 25 GB
-1. Click finish and launch the VM
+1. Click finish
+1. **Before launching the VM**, select the VM in VirtualBox and go to Settings>Display>Graphics Controller and select "VBoxVGA" from the drop-down menu
+    <!-- S/O to Thomas on the discord for this fix -->
+1. Click okay, and then launch the VM
 1. Follow the installation instructions, making sure to specify the following information:
     - Hostname: linuxtest
     - Domain: domain.edu
@@ -59,14 +67,60 @@
 
 5. Once the GUI boots, select the top option and enter your username/password
 
+## Task 4: Installing Necessary Software
 
+In this exercise, we will be installed the following software onto both the Windows Server VM and the Kali Linux VM:
+- FileZilla
+- NetWitness Investigator
+- OpenVAS
+- PuTTY
+- Tftpd64
+- Wireshark
+- Zenmap
 
+>[!tip]
+> If you are on a Windows Machine and are having trouble installing the software onto the Windows VM, try installing it on your local machine instead
 
-## Task 6.5: Questions & Answers
+### Configuring Kali Linux
+1. Launch the Linux VM
+1. Open the command line & run the following command to test internet connectivity
+    ```bash
+    ping 23.215.0.136 -c 4
+    ```
+1. If you are able to successfully ping the website, run the following block of commands:
+    ```bash
+    echo "deb http://http.kali.org/kali kali-last-snapshot main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list
+    sudo apt update
+    sudo apt upgrade -y
+    sudo apt install filezilla tftpd32 zenmap openvas -y
+    ```
+1. To configure OpenVas, run the following commands:
+    ```bash
+    sudo gvm-setup
+    sudo gvm-check-setup
+    sudo gvmd --user=admin --new-password=passwd;
+    ```
+
+### Configuring Windows Server VM
+
+Install the following software onto the VM
+- FileZilla > [.exe](https://dl3.cdn.filezilla-project.org/client/FileZilla_3.68.1_win64-setup.exe?h=U61GJtLX4WeCCWKnq-PPdA&x=1740356508)
+- NetWitness Investigator > [.msi](https://www2.netwitness.com/l/934283/atorSetup-11-4-2-0-783-x64-msi/chpzq)
+- Tftpd32 > [.exe](https://bitbucket.org/phjounin/tftpd64/downloads/Tftpd32-4.64-setup.exe)
+- Wireshark > [.exe] (https://2.na.dl.wireshark.org/win64/Wireshark-4.4.4-x64.exe) [PortableApps .exe](https://2.na.dl.wireshark.org/win64/WiresharkPortable64_4.4.4.paf.exe)
+- Zenmap > [.exe](https://nmap.org/dist/nmap-7.95-setup.exe)
+
+## Task 5: NetWitness Investigator
+
+> [!WARNING]
+> This section is still-in progress! Come back later!
+
+## Task 8: Questions & Answers
 
 Answer the following questions:
 
 1. What is promiscuous mode?
+<!-- What your mom does every night, hehe -->
 2. How does Wireshark differ from NetWitness Investigator?
 3. What is the command line syntax for running an Intense Scan with Zenmap on a target
 subnet of 172.30.0.0/24?
