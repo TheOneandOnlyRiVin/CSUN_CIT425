@@ -1,7 +1,7 @@
 # CSUN_CIT425
 Lab Instructions for CIT 425
 
->[!warning] Construction Zone Ahead!
+>[!warning]
 This section is still under construction! Come back later.
 
 ## Resources: 
