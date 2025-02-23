@@ -1,4 +1,8 @@
 # Lab #1: Using Zenmap to Perform Basic Reconnaissance, Performing a Vulnerability Assessment
+
+>[!Note] Disclaimer
+> All information in this guide is certified "Works on my Machine:tm:"! Individual expirence may vary.
+
 ## Deliverables
 
 > [!WARNING]
@@ -13,7 +17,7 @@
 1. Download Windows 10 22H2 > [.iso](https://drive.google.com/file/d/1x-0Jm8ADMHwN19fM1y_TBvhAGO-h4o5F/view)
 1. On VirtualBox, select "machine>new"
 1. Select the iso
-1. Set the memory to 4096 mb or higher & the processors to 8 or higher and then click next
+1. Set the memory to 4096MG or higher & the processors to 8 or higher and then click next
 1. Set the Disk Size to 32GB or higher and then click next > finish
 1. Launch the VM and follow the installation instructions
 
@@ -22,9 +26,9 @@
 1. Download Windows Server 2022 (Evaluation edition) > [.iso](https://go.microsoft.com/fwlink/p/?LinkID=2195280&clcid=0x409&culture=en-us&country=US)
 1. Launch VirtualBox and create a new machine, selecting the .iso you downloaded and the following values:
     - Skip Unattended Installation: check
-    - Memory: 4096 mb
+    - Base Memory: 4096 MB
     - Processors: 8
-    - Disk Size: 32 gb
+    - Disk Size: 32 GB
 1. Launch the VM
 1. Click next > install now
 1. Select "Windows Server 2022 Standard Evaluation (Desktop Expirence)" and then click next
@@ -36,6 +40,26 @@
 
 1. Download Kali Linux 2024.4 > [.iso](https://cdimage.kali.org/kali-2024.4/kali-linux-2024.4-installer-amd64.iso)
 1. Launch VirtualBox and create a new machine using the following paramaters: 
+    - Base Memory 2048 MB 
+    - Processors: 4
+    - Virtual Hard Disk Size: 25 GB
+1. Click finish and launch the VM
+1. Follow the installation instructions, making sure to specify the following information:
+    - Hostname: linuxtest
+    - Domain: domain.edu
+    - Name: user
+    - Username: username
+    - Partioning Method: 1
+    - Partioning Scheme: All files in one partition
+    - Installed software: 1 2 5 6 7
+    - Device for boot loader installation: /dev/sda
+
+>[!Caution]
+> Make sure to double check your spelling. Also write down your username/password.
+
+5. Once the GUI boots, select the top option and enter your username/password
+
+
 
 
 ## Task 6.5: Questions & Answers
