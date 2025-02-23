@@ -115,7 +115,12 @@ Install the following software onto the VM
 > [!WARNING]
 > This section is still-in progress! Come back later!
 
-## Task 8: Questions & Answers
+## Task 6: Using Zenmap to Perform Basic Reconnaissance
+
+> [!WARNING]
+> This section is still-in progress! Come back later!
+
+## Task 6.5: Exercise Questions
 
 Answer the following questions:
 
@@ -144,3 +149,22 @@ on the targeted host?
 threats, or vulnerabilities found?
 18. What must you do to confirm or verify if the identified OS, software, application has the
 latest release and/or software updates and patches?
+
+## Task 7: Performing a Vulnerability Assessment
+
+> [!WARNING]
+> This section is still-in progress! Come back later!
+
+## Task 7.5: Exercise Questions
+
+Answer the following questions:
+
+1. What is Zenmap typically used for? How is it related to Nmap? Describe a scenario in which you would use this type of application.
+1. Which application can be used to perform a vulnerability assessment scan in the reconnaissance phase of the ethical hacking process?
+1. What must you obtain before you begin the ethical hacking process or penetration test on a live production network, even before performing the reconnaissance step?
+4. What is a CVE listing? Who hosts and sponsors the CVE database listing Web site?
+5. Can Zenmap detect which operating systems are present on IP servers and workstations? Which option includes that scan?
+6. How can you limit the breadth and scope of a vulnerability scan?
+7. Once a vulnerability has been identified by OpenVAS, where would you check for more information regarding the identified vulnerability, exploits, and any risk mitigation solution?
+8. What is the major difference between Zenmap and OpenVAS?
+9. Why do you need to run both tools like Zenmap and OpenVAS to complete the reconnaissance phase of the ethical hacking process?
