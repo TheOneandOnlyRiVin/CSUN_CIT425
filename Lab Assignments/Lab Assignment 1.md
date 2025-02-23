@@ -15,20 +15,16 @@
 1. Select the iso
 1. Set the memory to 4096 mb or higher & the processors to 8 or higher and then click next
 1. Set the Disk Size to 32GB or higher and then click next > finish
-1. Launch the VM
-1. Click next > install now
-1. Select "Windows Server 2022 Standard Evaluation (Desktop Expirence)" and then click next
-1. Accept the EULA and then click next
-1. Select Custom, then click next on the next window
-1. Click finish and wait for it to finished installing
+1. Launch the VM and follow the installation instructions
 
 ### Install and Configure Windows Server 2022 VM
 
 1. Download Windows Server 2022 (Evaluation edition) > [.iso](https://go.microsoft.com/fwlink/p/?LinkID=2195280&clcid=0x409&culture=en-us&country=US)
-1. Launch VirtualBox and create a new machine, selecting the .iso you downloaded
-1. Check "skip unattended installation" and then click next
-1. Set the memory to 4096 mb or higher & the processors to 8 or higher and then click next
-1. Set the Disk Size to 32GB or higher and then click next > finish
+1. Launch VirtualBox and create a new machine, selecting the .iso you downloaded and the following values:
+    - Skip Unattended Installation: check
+    - Memory: 4096 mb
+    - Processors: 8
+    - Disk Size: 32 gb
 1. Launch the VM
 1. Click next > install now
 1. Select "Windows Server 2022 Standard Evaluation (Desktop Expirence)" and then click next
@@ -36,6 +32,10 @@
 1. Select Custom, then click next on the next window
 1. Click finish and wait for it to finished installing
 
+## Task 3: Install and Configure Kali Linux 
+
+1. Download Kali Linux 2024.4 > [.iso](https://cdimage.kali.org/kali-2024.4/kali-linux-2024.4-installer-amd64.iso)
+1. Launch VirtualBox and create a new machine using the following paramaters: 
 
 
 ## Task 6.5: Questions & Answers
