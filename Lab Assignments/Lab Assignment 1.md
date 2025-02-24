@@ -46,7 +46,7 @@ A word doc containing the following:
 1. Download Kali Linux 2024.4 > [.iso](https://cdimage.kali.org/kali-2024.4/kali-linux-2024.4-installer-amd64.iso)
 1. Launch VirtualBox and create a new machine using the following paramaters: 
     - Base Memory 2048 MB 
-    - Processors: 4
+    - Processors: 6
     - Virtual Hard Disk Size: 25 GB
 1. Click finish
 1. **Before launching the VM**, select the VM in VirtualBox and go to Settings>Display>Graphics Controller and select "VBoxVGA" from the drop-down menu
@@ -105,7 +105,9 @@ In this exercise, we will be installed the following software onto both the Wind
 
 Install the following software onto the VM
 - FileZilla > [.exe](https://dl3.cdn.filezilla-project.org/client/FileZilla_3.68.1_win64-setup.exe?h=U61GJtLX4WeCCWKnq-PPdA&x=1740356508)
+- 7zip > [.exe](https://www.7-zip.org/a/7z2409-x64.exe)
 - NetWitness Investigator > [.msi](https://www2.netwitness.com/l/934283/atorSetup-11-4-2-0-783-x64-msi/chpzq)
+    - Use the typical installation
 - Tftpd32 > [.exe](https://bitbucket.org/phjounin/tftpd64/downloads/Tftpd32-4.64-setup.exe)
 - Wireshark > [.exe] (https://2.na.dl.wireshark.org/win64/Wireshark-4.4.4-x64.exe) [PortableApps .exe](https://2.na.dl.wireshark.org/win64/WiresharkPortable64_4.4.4.paf.exe)
 - Zenmap > [.exe](https://nmap.org/dist/nmap-7.95-setup.exe)
@@ -114,6 +116,26 @@ Install the following software onto the VM
 
 > [!WARNING]
 > This section is still-in progress! Come back later!
+
+1. Launch the Windows Server VM and open Wireshark
+1. Select the network adapter you want to monitor and let it monitor the traffic for a few seconds
+1. Take a screenshot of the traffic for the deliverables and then close without saving. 
+1. Launch NWInvestigator
+1. Activate the freeware
+    >[!tip]
+    > Don't want to give your personal email? Use [EmailOnDeck.com](https://www.emailondeck.com/eod.php)
+1. When prompted to download the Demo Collection, accept
+1. Double-click on the demo collection and thumb through the data.
+    <br> Notice that NetWitness Investigator has identified three items that might be a possible threat to the network (in the Alerts report), specified the source and destination IP addresses in this collection, and even recognized the user accounts.
+1. Close NetWitness
+1. Launch the Command Prompt, run the below command, and record the IP address
+    ```cmd
+    ipconfig
+    ```
+<!-- 192.168.1.164 -->
+1. Launch the Linux VM and open FireFox
+1. Go to 127.0.0.1 and accept the self-signed certificate risk
+1. Enter the username and password you created when you configured OpenVas
 
 ## Task 6: Using Zenmap to Perform Basic Reconnaissance
 
